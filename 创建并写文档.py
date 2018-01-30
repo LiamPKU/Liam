@@ -1,0 +1,5 @@
+f=open('miao.txt','w')
+f.write('我饿了')
+f.write('\n')
+f.write('吃肉吧')
+f.close()
