@@ -1,0 +1,41 @@
+buildscript {
+	ext['thymeleaf.version'] = '3.0.11.RELEASE'
+	ext['thymeleaf-layout-dialect.version'] = '2.0.0'
+	ext['hibernate.version'] = '5.2.8.Final'
+}
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '1.0'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	//maven(
+	//url
+	//'http://maven.aliyun.com/nexus/content/groups/public/'
+	//)
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+    implementation 'junit:junit:4.12'
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('mysql:mysql-connector-java:6.0.5')
+	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')//elastic search 依赖
+	compile('net.java.dev.jna:jna:4.3.0')//jna依赖
+	//runtime('com.h2database:h2:1.4.193')//内存数据库
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}
+
+test {
+	useJUnitPlatform()
+}
